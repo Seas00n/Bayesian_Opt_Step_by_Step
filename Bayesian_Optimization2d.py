@@ -84,6 +84,7 @@ for i in range(10):
     part_of_state_space = np.hstack([sample_x.reshape(-1,1), sample_y.reshape(-1,1)])
     gp_model.fit(part_of_state_space, cost_z)
     cost_z_pred = gp_model.predict(state_space).reshape((100,100))
+    #print(accuracy)
     gp_pred_surf.remove()
     gp_pred_surf = ax0.plot_surface(X,Y,cost_z_pred,linewidth=0,cmap='rainbow',
                  norm=matplotlib.colors.Normalize(vmin=-0.7, vmax=1),
